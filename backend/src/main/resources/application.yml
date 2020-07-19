@@ -1,0 +1,32 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:template-db
+    driver-class-name: org.h2.Driver
+    username: admin
+    password: password
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+
+security:
+  auth:
+    header: Authorization
+    prefix: "Bearer "
+    login-uri: /authentication
+    white-list:
+      # Browser requests
+      - /favicon.ico
+      - /csrf
+      # Swagger
+      - /webjars/**
+      # H2
+      - /h2-console/**
+  jwt:
+    secret: p7WyiqFXz9dzaXc4kjHV%C*F$%&/!Juuy3pbqWzsIeLA27W6IwnIIUFWQ0VuVJdOzXVkYp3s6vBxnhotpCpkJGsdkPkVI59
+    type: JWT
+    issuer: backend-template
+    audience: secure-app
+    expiration-time: 43200000
