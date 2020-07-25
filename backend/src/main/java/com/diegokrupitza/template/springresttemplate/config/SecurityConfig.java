@@ -65,8 +65,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .anyRequest().authenticated()
                 .and()
-                .addFilter(new JwtAuthenticationFilter(authenticationManager(), securityProperties, jwtTokenizer, userService))
-                .addFilter(new JwtAuthorizationFilter(authenticationManager(), securityProperties, userService))
+                .addFilter(new JwtAuthenticationFilter(authenticationManager(), securityProperties, jwtTokenizer))
+                .addFilter(new JwtAuthorizationFilter(authenticationManager(), securityProperties))
                 .sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
     }
@@ -95,7 +95,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         source.registerCorsConfiguration("/**", configuration);
         return source;
     }
-
 
 
 }

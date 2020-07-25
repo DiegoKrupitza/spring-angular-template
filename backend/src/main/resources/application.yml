@@ -31,3 +31,12 @@ security:
     issuer: backend-template
     audience: secure-app
     expiration-time: 43200000
+
+application:
+  property1: Hello World
+  templateMode: true
+  propertyList:
+    - This
+    - is
+    - a
+    - list
