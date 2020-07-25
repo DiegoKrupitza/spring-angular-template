@@ -28,9 +28,14 @@ export class LoginComponent implements OnInit {
    * Performs the login operation to the backend
    */
   performLogin() {
-    this.notificationService.showSuccess("Hello1");
-    this.notificationService.showStandard("Hello2");
-    this.notificationService.showError("Hello3");
-    this.notificationService.showWarn("Hello4");
+
+  }
+
+  get usernameControl() {
+    return this.loginForm.get('username');
+  }
+
+  get passwordControl() {
+    return this.loginForm.get('password');
   }
 }
