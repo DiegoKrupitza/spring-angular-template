@@ -18,6 +18,7 @@ security:
     login-uri: /authentication
     white-list:
       # Browser requests
+      - /authentication/refresh
       - /favicon.ico
       - /csrf
       # Swagger

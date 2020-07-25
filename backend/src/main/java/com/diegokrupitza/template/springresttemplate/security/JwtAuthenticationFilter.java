@@ -1,7 +1,6 @@
 package com.diegokrupitza.template.springresttemplate.security;
 
 import com.diegokrupitza.template.springresttemplate.config.properties.SecurityProperties;
-import com.diegokrupitza.template.springresttemplate.service.UserService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
@@ -31,13 +30,11 @@ import java.util.stream.Collectors;
 public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilter {
     private final AuthenticationManager authenticationManager;
     private final JwtTokenizer jwtTokenizer;
-    private final UserService userService;
 
     public JwtAuthenticationFilter(AuthenticationManager authenticationManager, SecurityProperties securityProperties,
-                                   JwtTokenizer jwtTokenizer, UserService userService) {
+                                   JwtTokenizer jwtTokenizer) {
         this.authenticationManager = authenticationManager;
         this.jwtTokenizer = jwtTokenizer;
-        this.userService = userService;
         setFilterProcessesUrl(securityProperties.getLoginUri());
     }
 
@@ -56,7 +53,6 @@ public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilte
         return authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(
                 user.getUsername(),
                 user.getPassword()));
-
     }
 
     @Override

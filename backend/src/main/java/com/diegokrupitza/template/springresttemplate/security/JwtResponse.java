@@ -9,7 +9,6 @@ import lombok.NoArgsConstructor;
  * @version 1.0
  * @date 2020-07-19
  */
-
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
