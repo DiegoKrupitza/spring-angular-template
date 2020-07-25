@@ -1,6 +1,7 @@
 # Spring Boot Angular Application Template
 
 * [x] Backend with Jwt Authentication
-* [ ] Jwt refresh token implemented
+* [x] Jwt refresh token implemented
+* [x] Application properties
 * [ ] Add Angular frontend 
 * [ ] Link frontend with backend
